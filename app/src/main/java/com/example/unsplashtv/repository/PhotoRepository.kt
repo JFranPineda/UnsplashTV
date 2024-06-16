@@ -8,5 +8,5 @@ class PhotoRepository {
     private val api = RetrofitInstance.api
 
     suspend fun getRandomPhotos(): List<Photo> = api.getRandomPhotos()
-    suspend fun searchPhotos(query: String): SearchResult = api.searchPhotos(query)
+    suspend fun searchPhotos(query: String, page: Int = 1): SearchResult = api.searchPhotos(query, page = page)
 }
