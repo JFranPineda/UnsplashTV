@@ -7,20 +7,15 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.tv.material3.ExperimentalTvMaterial3Api
 import com.example.unsplashtv.ui.theme.UnsplashTVTheme
 import com.example.unsplashtv.view.PhotoSearchApp
 import com.example.unsplashtv.viewmodel.PhotoViewModel
 import com.example.unsplashtv.viewmodel.PhotoViewModelFactory
 import androidx.compose.material3.Surface
-import androidx.tv.material3.MaterialTheme
-import com.example.unsplashtv.ui.theme.Black00
-import com.example.unsplashtv.ui.theme.DarkGray
 
 class MainActivity : ComponentActivity() {
     private val viewModel: PhotoViewModel by viewModels { PhotoViewModelFactory() }
 
-    @OptIn(ExperimentalTvMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

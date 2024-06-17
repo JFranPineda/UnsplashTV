@@ -29,21 +29,21 @@ fun PhotoCard(photo: Photo) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
-            .clip(RoundedCornerShape(8.dp))
+            .padding(4.dp)
+            .clip(RoundedCornerShape(4.dp))
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(180.dp)
-                .padding(8.dp)
+                .padding(4.dp)
         ) {
             photo.urls?.small_s3?.let { imageUrl ->
                 AsyncImage(
                     model = imageUrl,
                     modifier = Modifier
                         .fillMaxSize()
-                        .clip(shape = RoundedCornerShape(8.dp)), // Optional: Apply rounded corners
+                        .clip(shape = RoundedCornerShape(4.dp)), // Optional: Apply rounded corners
                     contentScale = ContentScale.Crop,
                     contentDescription = photo.alt_description,
                     onError = { error ->

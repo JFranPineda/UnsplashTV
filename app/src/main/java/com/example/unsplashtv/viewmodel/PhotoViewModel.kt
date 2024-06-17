@@ -15,9 +15,6 @@ class PhotoViewModel: ViewModel() {
     private val _photos = MutableStateFlow<List<Photo>>(emptyList())
     val photos: StateFlow<List<Photo>> get() = _photos
 
-    private val _searchResults = MutableStateFlow<List<Photo>>(emptyList())
-    val searchResults: StateFlow<List<Photo>> get() = _searchResults
-
     fun getRandomPhotos() {
         viewModelScope.launch {
             val response = repository.getRandomPhotos()
@@ -29,7 +26,8 @@ class PhotoViewModel: ViewModel() {
     fun searchPhotos(query: String) {
         viewModelScope.launch {
             val response = repository.searchPhotos(query)
-            _searchResults.value = response.results
+            _photos.value = response.results
+            Log.d("PhotoViewModel", "Searched photos: ${response.results.size}")
         }
     }
 }
