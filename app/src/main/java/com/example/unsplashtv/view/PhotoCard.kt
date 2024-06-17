@@ -19,13 +19,15 @@ import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import formatDate
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.painterResource
 import androidx.tv.material3.ExperimentalTvMaterial3Api
+import coil.compose.rememberAsyncImagePainter
 import com.example.unsplashtv.ui.theme.Typography
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 fun PhotoCard(photo: Photo) {
-    val tagsText: String = photo.tags?.joinToString(", ") { it.title } ?: "No Tags"
+    val tagsText: String = photo.tags?.take(3)?.joinToString(", ") { it.title } ?: ""
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -43,9 +45,10 @@ fun PhotoCard(photo: Photo) {
                     model = imageUrl,
                     modifier = Modifier
                         .fillMaxSize()
-                        .clip(shape = RoundedCornerShape(4.dp)), // Optional: Apply rounded corners
+                        .clip(shape = RoundedCornerShape(4.dp)),
                     contentScale = ContentScale.Crop,
                     contentDescription = photo.alt_description,
+                    placeholder = GrayCardPlaceholder(),
                     onError = { error ->
                         Log.e("PhotoCard", "Failed to load image: $error")
                     }
