@@ -17,13 +17,17 @@ fun UnsplashTVTheme(
         darkColorScheme(
                 primary = Purple80,
                 secondary = PurpleGrey80,
-                tertiary = Pink80
+                tertiary = Pink80,
+                background = DarkBlack,
+                surface = DarkGray
         )
     } else {
         lightColorScheme(
                 primary = Purple40,
                 secondary = PurpleGrey40,
-                tertiary = Pink40
+                tertiary = Pink40,
+                background = WhiteFF,
+                surface = PurpleGrey80
         )
     }
     MaterialTheme(

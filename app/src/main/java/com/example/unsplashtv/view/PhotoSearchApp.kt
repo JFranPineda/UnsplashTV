@@ -13,6 +13,9 @@ import androidx.compose.runtime.getValue
 import com.example.unsplashtv.viewmodel.PhotoViewModel
 import androidx.compose.ui.Modifier
 import androidx.tv.material3.ExperimentalTvMaterial3Api
+import com.example.unsplashtv.ui.theme.Black00
+import com.example.unsplashtv.ui.theme.DarkGray
+import com.example.unsplashtv.ui.theme.Red800
 import com.example.unsplashtv.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalTvMaterial3Api::class)
@@ -25,6 +28,7 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
     }
 
     Scaffold(
+        containerColor = DarkGray,
         topBar = {
             TopAppBar(title = { Text("Trending Now", style = Typography.titleLarge) })
         },

@@ -25,7 +25,7 @@ val Typography = Typography(
                 fontSize = 22.sp,
                 lineHeight = 28.sp,
                 letterSpacing = 0.5.sp,
-                color = WhiteFF
+                color = DarkGray
         ),
         labelLarge = TextStyle(
                 fontFamily = FontFamily.Default,
