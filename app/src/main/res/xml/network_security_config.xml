@@ -2,6 +2,7 @@
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">api.unsplash.com</domain>
+        <domain includeSubdomains="true">images.unsplash.com</domain>
         <trust-anchors>
             <certificates src="system"/>
         </trust-anchors>

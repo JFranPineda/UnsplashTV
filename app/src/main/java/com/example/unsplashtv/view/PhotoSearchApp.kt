@@ -12,8 +12,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.example.unsplashtv.viewmodel.PhotoViewModel
 import androidx.compose.ui.Modifier
+import androidx.tv.material3.ExperimentalTvMaterial3Api
+import com.example.unsplashtv.ui.theme.Typography
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalTvMaterial3Api::class)
 @Composable
 fun PhotoSearchApp(viewModel: PhotoViewModel) {
     val photos by viewModel.photos.collectAsState()
@@ -24,7 +26,7 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Photo Search") })
+            TopAppBar(title = { Text("Trending Now", style = Typography.titleLarge) })
         },
         content = { innerPadding ->
             Column(modifier = Modifier.padding(innerPadding)) {
