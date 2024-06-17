@@ -1,5 +1,6 @@
 package com.example.unsplashtv.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unsplashtv.model.Photo
@@ -21,6 +22,7 @@ class PhotoViewModel: ViewModel() {
         viewModelScope.launch {
             val response = repository.getRandomPhotos()
             _photos.value = response
+            Log.d("PhotoViewModel", "Fetched photos: ${response.size}")
         }
     }
 
