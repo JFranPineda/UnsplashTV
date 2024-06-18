@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 
 class PhotoViewModel: ViewModel() {
     private val repository = PhotoRepository()
+    private var currentPage: Int = 1
+    private var isFetching = false
 
     private val _photos = MutableStateFlow<List<Photo>>(emptyList())
     val photos: StateFlow<List<Photo>> get() = _photos
@@ -19,15 +21,25 @@ class PhotoViewModel: ViewModel() {
         viewModelScope.launch {
             val response = repository.getRandomPhotos()
             _photos.value = response
-            Log.d("PhotoViewModel", "Fetched photos: ${response.size}")
         }
     }
 
-    fun searchPhotos(query: String) {
+    fun searchPhotos(query: String, page: Int = 1) {
+        if (isFetching || query.isEmpty()) return
+        isFetching = true
         viewModelScope.launch {
-            val response = repository.searchPhotos(query)
-            _photos.value = response.results
-            Log.d("PhotoViewModel", "Searched photos: ${response.results.size}")
+            val response = repository.searchPhotos(query = query, page = page)
+            if (page == 1) {
+                _photos.value = response.results
+            } else {
+                _photos.value += response.results
+            }
+            currentPage = page
+            isFetching = false
         }
+    }
+
+    fun loadMorePhotos(query: String) {
+        searchPhotos(query = query, page = currentPage + 1)
     }
 }

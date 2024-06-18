@@ -39,6 +39,10 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
         }
     }
 
+    LaunchedEffect(Unit) {
+        viewModel.getRandomPhotos()
+    }
+
     LaunchedEffect(photos) {
         snapshotFlow { photos }
             .distinctUntilChanged()
@@ -53,10 +57,6 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
                     }
                 }
             }
-    }
-
-    LaunchedEffect(Unit) {
-        viewModel.getRandomPhotos()
     }
 
     Scaffold(
@@ -75,7 +75,7 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
                     onSearch = { onSearchHandle(searchQuery) }
                 )
                 Text(textSearchResult, style = Typography.bodyLarge)
-                PhotoGrid(photos = photos)
+                PhotoGrid(photos = photos, onLoadMore = { viewModel.loadMorePhotos(searchQuery) })
             }
         }
     )
