@@ -1,4 +1,4 @@
-package com.example.unsplashtv.view
+package com.example.unsplashtv.view.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -22,7 +22,7 @@ import com.example.unsplashtv.ui.theme.WhiteFF
 import androidx.compose.material3.Card
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
-import com.example.unsplashtv.view.searchbar.ExpandedSearchBar
+import com.example.unsplashtv.view.components.searchbar.ExpandedSearchBar
 
 @Composable
 fun SearchBar(

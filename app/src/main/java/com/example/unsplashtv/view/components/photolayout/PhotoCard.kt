@@ -1,4 +1,4 @@
-package com.example.unsplashtv.view.photolayout
+package com.example.unsplashtv.view.components.photolayout
 
 import android.util.Log
 import androidx.compose.foundation.layout.Box

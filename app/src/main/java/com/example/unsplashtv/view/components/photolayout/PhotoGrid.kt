@@ -1,4 +1,4 @@
-package com.example.unsplashtv.view.photolayout
+package com.example.unsplashtv.view.components.photolayout
 
 import androidx.compose.runtime.Composable
 import com.example.unsplashtv.model.Photo

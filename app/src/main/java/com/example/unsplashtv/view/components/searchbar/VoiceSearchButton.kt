@@ -1,4 +1,4 @@
-package com.example.unsplashtv.view.searchbar
+package com.example.unsplashtv.view.components.searchbar
 
 import android.app.Activity
 import android.content.Intent

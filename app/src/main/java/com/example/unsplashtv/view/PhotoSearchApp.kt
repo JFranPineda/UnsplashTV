@@ -15,7 +15,10 @@ import com.example.unsplashtv.viewmodel.PhotoViewModel
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.unsplashtv.ui.theme.DarkGray
-import com.example.unsplashtv.view.photolayout.PhotoGrid
+import com.example.unsplashtv.view.components.CustomTextLabel
+import com.example.unsplashtv.view.components.CustomTopAppBar
+import com.example.unsplashtv.view.components.SearchBar
+import com.example.unsplashtv.view.components.photolayout.PhotoGrid
 
 @Composable
 fun PhotoSearchApp(viewModel: PhotoViewModel) {

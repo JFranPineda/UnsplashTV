@@ -1,4 +1,4 @@
-package com.example.unsplashtv.view.searchbar
+package com.example.unsplashtv.view.components.searchbar
 
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField

@@ -1,4 +1,4 @@
-package com.example.unsplashtv.view.photolayout
+package com.example.unsplashtv.view.components.photolayout
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
