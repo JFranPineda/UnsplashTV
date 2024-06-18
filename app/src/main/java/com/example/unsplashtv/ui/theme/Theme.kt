@@ -16,7 +16,7 @@ fun UnsplashTVTheme(
     val colorScheme = if (isInDarkTheme) {
         darkColorScheme(
                 primary = Purple80,
-                secondary = PurpleGrey80,
+                secondary = WhiteFF,
                 tertiary = Pink80,
                 background = DarkBlack,
                 surface = DarkGray
@@ -24,10 +24,10 @@ fun UnsplashTVTheme(
     } else {
         lightColorScheme(
                 primary = Purple40,
-                secondary = PurpleGrey40,
+                secondary = WhiteFF,
                 tertiary = Pink40,
                 background = WhiteFF,
-                surface = PurpleGrey80
+                surface = WhiteFF
         )
     }
     MaterialTheme(

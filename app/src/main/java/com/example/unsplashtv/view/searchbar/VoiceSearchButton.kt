@@ -1,7 +1,6 @@
 package com.example.unsplashtv.view.searchbar
 
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer

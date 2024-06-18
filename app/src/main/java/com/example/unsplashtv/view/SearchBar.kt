@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -21,6 +22,7 @@ import com.example.unsplashtv.ui.theme.WhiteFF
 import androidx.compose.material3.Card
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import com.example.unsplashtv.view.searchbar.ExpandedSearchBar
 
 @Composable
 fun SearchBar(
@@ -37,9 +39,11 @@ fun SearchBar(
     val boxModifier = if (isExpanded.value) {
         Modifier
             .fillMaxWidth(fractionWidth)
+            .size(70.dp)
             .clickable { isExpanded.value = !isExpanded.value }
     } else {
         Modifier
+            .padding(horizontal = 10.dp, vertical = 0.dp)
             .size(56.dp)
             .clickable { isExpanded.value = !isExpanded.value }
     }
