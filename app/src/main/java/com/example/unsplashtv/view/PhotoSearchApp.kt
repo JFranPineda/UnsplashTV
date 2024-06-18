@@ -35,7 +35,7 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
         if (searchQuery.isEmpty()) {
             viewModel.getRandomPhotos()
         } else {
-            viewModel.searchPhotos(searchQuery)
+            viewModel.searchPhotos(query = searchQuery, page = 1)
         }
     }
 
@@ -53,7 +53,7 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
                     if (updatedPhotos.isEmpty()) {
                         "No search results for \"$searchQuery\""
                     } else {
-                        "Search Results for: \"$searchQuery\""
+                        "Search Results for \"$searchQuery\""
                     }
                 }
             }
@@ -62,7 +62,7 @@ fun PhotoSearchApp(viewModel: PhotoViewModel) {
     Scaffold(
         containerColor = DarkGray,
         topBar = {
-            TopAppBar(title = { Text("Haystack News", style = Typography.titleLarge) })
+            TopAppBar(title = { Text("Haystack Photos", style = Typography.titleLarge) })
         },
         content = { innerPadding ->
             Column(

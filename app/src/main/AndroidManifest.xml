@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
+        </intent>
+    </queries>
+    <queries>
+        <intent>
+            <action
+                android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.audio.input"/>
 
     <application
         android:networkSecurityConfig="@xml/network_security_config"

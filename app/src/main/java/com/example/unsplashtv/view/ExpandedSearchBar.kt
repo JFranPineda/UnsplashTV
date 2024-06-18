@@ -7,8 +7,9 @@ import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import com.example.unsplashtv.view.searchbar.SearchButton
+import com.example.unsplashtv.view.searchbar.SearchTextField
+import com.example.unsplashtv.view.searchbar.VoiceSearchButton
 
 @Composable
 fun ExpandedSearchBar(
@@ -20,20 +21,8 @@ fun ExpandedSearchBar(
     Row(modifier = Modifier
         .fillMaxWidth()
         .padding(8.dp)) {
-        TextField(
-            value = query,
-            onValueChange = onQueryChanged,
-            label = { Text(text = "Search") },
-            modifier = Modifier.weight(1f)
-        )
-        Button(
-            onClick = {
-                onSearch()
-                onCollapse()
-            },
-            modifier = Modifier.padding(start = 8.dp)
-        ) {
-            Text(text = "Search")
-        }
+        SearchTextField(query = query, onQueryChanged = onQueryChanged, modifier = Modifier.weight(1f))
+        SearchButton(onSearch = onSearch, onCollapse = onCollapse)
+        VoiceSearchButton(onVoiceResult = onQueryChanged)
     }
 }

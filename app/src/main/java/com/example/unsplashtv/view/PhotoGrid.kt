@@ -1,6 +1,5 @@
 package com.example.unsplashtv.view
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import com.example.unsplashtv.model.Photo
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -16,7 +15,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun PhotoGrid(photos: List<Photo>, onLoadMore: () -> Unit) {
-    Log.d("PhotoGrid", "Photos received: $photos")
     val gridState = rememberLazyGridState()
     val coroutineScope = rememberCoroutineScope()
 
@@ -34,11 +32,9 @@ fun PhotoGrid(photos: List<Photo>, onLoadMore: () -> Unit) {
             .filter { layoutInfo ->
                 val totalItems = layoutInfo.totalItemsCount
                 val lastVisibleItemIndex = layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: -1
-                Log.d("PhotoGrid", "totalItems: $totalItems, lastVisibleItemIndex: $lastVisibleItemIndex")
                 (lastVisibleItemIndex == totalItems - 1) && lastVisibleItemIndex > -1
             }
             .collect {
-                Log.d("PhotoGrid", "Launching coroutineScope onLoadMode...")
                 coroutineScope.launch { onLoadMore() }
             }
     }
