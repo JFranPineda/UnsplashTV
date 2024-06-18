@@ -26,6 +26,7 @@ import com.example.unsplashtv.ui.theme.Typography
 @Composable
 fun PhotoCard(photo: Photo) {
     val tagsText: String = photo.tags?.take(3)?.joinToString(", ") { it.title } ?: ""
+    val photoUrl: String = photo.urls?.small_s3 ?: ""
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,20 +39,18 @@ fun PhotoCard(photo: Photo) {
                 .height(180.dp)
                 .padding(4.dp)
         ) {
-            photo.urls?.small_s3?.let { imageUrl ->
-                AsyncImage(
-                    model = imageUrl,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .clip(shape = RoundedCornerShape(4.dp)),
-                    contentScale = ContentScale.Crop,
-                    contentDescription = photo.alt_description,
-                    placeholder = GrayCardPlaceholder(),
-                    onError = { error ->
-                        Log.e("PhotoCard", "Failed to load image: $error")
-                    }
-                )
-            }
+            AsyncImage(
+                model = photoUrl,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(shape = RoundedCornerShape(4.dp)),
+                contentScale = ContentScale.Crop,
+                contentDescription = photo.alt_description,
+                placeholder = GrayCardPlaceholder(),
+                onError = { error ->
+                    Log.e("PhotoCard", "Failed to load image: $error")
+                }
+            )
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)

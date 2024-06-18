@@ -29,7 +29,7 @@ fun CustomTopAppBar() {
         modifier = Modifier.padding(start = 0.dp, end = 0.dp, top = 0.dp, bottom = 10.dp),
         title = {
             Text(
-                text = "Haystack Photos",
+                text = "HaystackPhotos",
                 style = Typography.titleLarge,
                 color = WhiteFF
             )
